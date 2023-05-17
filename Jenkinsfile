@@ -13,8 +13,8 @@ echo 'Testing..'
   /* `make check` returns non-zero on test failures,
 * using `true` to allow the Pipeline to continue nonetheless
 */
-bat 'make check || true' ①
-junit '**/target/*.xml' ②
+bat 'make check || true' 
+junit '**/target/*.xml' 
   
 }
 }
