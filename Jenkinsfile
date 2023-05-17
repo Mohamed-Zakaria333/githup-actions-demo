@@ -1,7 +1,3 @@
-parameters {
-
-       
-       
 pipeline {
 agent any
 parameters {
