@@ -10,6 +10,7 @@ pipeline {
                 echo 'Sr. devops engineer at VOIS'
                 echo '$MYTOOL_VERSION'
             }
+        }
         stage('TST') {
             steps {
                 echo 'Hello from githup'
@@ -17,6 +18,7 @@ pipeline {
                 echo 'Sr. devops engineer at VOIS'
                 echo '$MYTOOL_VERSION'
             }
+        }
         stage('PRD') {
             steps {
                 echo 'Hello from githup'
@@ -24,14 +26,5 @@ pipeline {
                 echo 'Sr. devops engineer at VOIS'
                 echo '$MYTOOL_VERSION'
             }
-            
-            
-            
-            
-            
-            
-            
-            
         }
-    }
 }
