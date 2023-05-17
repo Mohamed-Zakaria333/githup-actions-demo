@@ -10,10 +10,9 @@ echo 'Building..'
 stage('Test') {
 steps {
 echo 'Testing..'
-  /* `make check` returns non-zero on test failures,
-* using `true` to allow the Pipeline to continue nonetheless
-*/
-junit '**/target/*.xml' 
+def username = 'Jenkins'
+echo 'Hello Mr. ${username}'
+echo "I said, Hello Mr. ${username}"
   
 }
 }
