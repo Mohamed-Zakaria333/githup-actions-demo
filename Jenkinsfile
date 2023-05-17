@@ -1,27 +1,21 @@
+// Declarative //
 pipeline {
 agent any
 parameters {
 string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I
 greet the world?')
-}     
-       
+}
 stages {
-stage('Build') {
+stage('Example') {
 steps {
-echo 'Building..'
-}
-}
-stage('Test') {
-steps {
-echo 'Testing..'
-echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}" 
- echo "${params.Greeting} World!"
-}
-}
-stage('Deploy') {
-steps {
-echo 'Deploying....'
+echo "${params.Greeting} World!"
 }
 }
 }
+}
+// Script //
+properties([parameters([string(defaultValue: 'Hello', description: 'How should I greet
+the world?', name: 'Greeting')])])
+node {
+echo "${params.Greeting} World!"
 }
