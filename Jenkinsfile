@@ -1,5 +1,5 @@
+env.MYTOOL_VERSION = '1.33'
 pipeline {
-    env.MYTOOL_VERSION = '1.33'
     agent any
 
     stages {
