@@ -1,13 +1,9 @@
-// Declarative //
 pipeline {
 agent any
-parameters {
-string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
-}
 stages {
-stage('Example') {
+stage('Test') {
 steps {
-echo "${params.Greeting} World!"
+sh 'make check'
 }
 }
 }
@@ -16,8 +12,7 @@ always {
 junit '**/target/*.xml'
 }
 failure {
-mail to: zx30cv31bn@gmail.com, subject: 'The Pipeline failed '
+mail to: zx30cv31bn@gmail.com, subject: 'The Pipeline failed :('
 }
 }
 }
-
