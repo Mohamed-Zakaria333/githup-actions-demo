@@ -3,7 +3,7 @@ agent any
 stages {
 stage('Test') {
 steps {
-echo "hello world"
+sh 'make check'
 }
 }
 }
