@@ -1,3 +1,4 @@
+// Declarative //
 pipeline {
 agent none
 stages {
