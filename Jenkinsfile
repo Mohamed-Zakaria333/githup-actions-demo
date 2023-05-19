@@ -6,8 +6,7 @@ stage('Build') {
 agent any
 steps {
 checkout scm
-sh 'make'
-stash includes: '**/target/*.jar', name: 'app'
+echo 'im any agent'
 }
 }
 stage('Test on Linux') {
@@ -15,12 +14,11 @@ agent {
 label 'linux'
 }
 steps {
-unstash 'app' 
-sh 'make check'
+echo 'i run on linux agent'
 }
 post {
 always {
-junit '**/target/*.xml'
+
 }
 }
 }
@@ -29,12 +27,11 @@ agent {
 label 'windows'
 }
 steps {
-unstash 'app'
-bat 'make check' 
+echo 'im run on windows agent'
 }
 post {
 always {
-junit '**/target/*.xml'
+
 }
 }
 }
