@@ -1,38 +1,11 @@
 // Declarative //
 pipeline {
-agent none
+agent { dockerfile true }
 stages {
-stage('Build') {
-agent any
+stage('Test') {
 steps {
-checkout scm
-echo 'im any agent'
-}
-}
-stage('Test on Linux') {
-agent { 
-label 'linux'
-}
-steps {
-echo 'i run on linux agent'
-}
-post {
-always {
-echo 'im always directives'
-}
-}
-}
-stage('Test on Windows') {
-agent {
-label 'windows'
-}
-steps {
-echo 'im run on windows agent'
-}
-post {
-always {
-echo 'im always directives'
-}
+sh 'node --version'
+sh 'svn --version'
 }
 }
 }
