@@ -7,15 +7,15 @@ agent any
 steps {
 checkout scm
 sh 'make'
-stash includes: '**/target/*.jar', name: 'app' 
+stash includes: '**/target/*.jar', name: 'app' ①
 }
 }
 stage('Test on Linux') {
-agent { 
+agent { ②
 label 'linux'
 }
 steps {
-unstash 'app' 
+unstash 'app' ③
 sh 'make check'
 }
 post {
@@ -30,11 +30,12 @@ label 'windows'
 }
 steps {
 unstash 'app'
-bat 'make check' 
+bat 'make check' ④
 }
 post {
 always {
 junit '**/target/*.xml'
+}
 }
 }
 }
