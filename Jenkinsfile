@@ -1,10 +1,10 @@
 // Declarative //
 pipeline {
-agent none
+  agent { label 'linux' }
 stages {
 stage('Back-end') {
 agent {
-label 'linux'
+
 docker { image 'maven:3-alpine' }
 }
 steps {
@@ -12,8 +12,7 @@ sh 'mvn --version'
 }
 }
 stage('Front-end') {
-agent {
-label 'linux'  
+agent {  
 docker { image 'node:7-alpine' }
 }
 steps {
