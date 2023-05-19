@@ -7,15 +7,15 @@ agent any
 steps {
 checkout scm
 sh 'make'
-stash includes: '**/target/*.jar', name: 'app' ①
+stash includes: '**/target/*.jar', name: 'app'
 }
 }
 stage('Test on Linux') {
-agent { ②
+agent { 
 label 'linux'
 }
 steps {
-unstash 'app' ③
+unstash 'app' 
 sh 'make check'
 }
 post {
@@ -30,7 +30,7 @@ label 'windows'
 }
 steps {
 unstash 'app'
-bat 'make check' ④
+bat 'make check' 
 }
 post {
 always {
