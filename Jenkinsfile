@@ -18,7 +18,7 @@ echo 'i run on linux agent'
 }
 post {
 always {
-
+echo 'im always directives'
 }
 }
 }
@@ -31,7 +31,7 @@ echo 'im run on windows agent'
 }
 post {
 always {
-
+echo 'im always directives'
 }
 }
 }
