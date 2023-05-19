@@ -1,6 +1,8 @@
 // Declarative //
 pipeline {
-  agent { label 'linux' }
+agent { 
+label 'linux'
+}
 stages {
 stage('Back-end') {
 agent {
