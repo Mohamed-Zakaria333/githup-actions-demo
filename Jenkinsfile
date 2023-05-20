@@ -14,3 +14,4 @@ docker.image('centos:7').inside("--link ${c.id}:db") {
 sh 'make check'
 }
 }
+}
