@@ -1,8 +1,15 @@
-node {
-checkout scm
-docker.withRegistry('https://hub.docker.com', 'doc') {
-def customImage = docker.build("my-image:${env.BUILD_ID}")
-/* Push the container to the custom Registry */
-customImage.push()
-}
+node {   
+    stage('Clone repository') {
+        git credentialsId: 'git', url: 'https://github.com/Monishamacharla/reactapp'
+    }
+    
+    stage('Build image') {
+       dockerImage = docker.build("monishavasu/zakaria-react-app-by-jenkins:latest")
+    }
+    
+ stage('Push image') {
+        withDockerRegistry([ credentialsId: "doc", url: "" ]) {
+        dockerImage.push()
+        }
+    }    
 }
